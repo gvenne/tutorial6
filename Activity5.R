@@ -1,14 +1,14 @@
-# read in greenhouse gas data from reservoirs
-ghg <- read.csv("/cloud/project/activity05/Deemer_GHG_Data.csv")
-
-install.packages(lubridate, ggplot2, dplyr)
-install.packages(forecast)
-
+install.packages(c("olsrr", "ggplot2", "dplyr"))
+install.packages("PerformanceAnalytics")
 
 library(dplyr)
 library(ggplot2)
 library(olsrr)
 library(PerformanceAnalytics)
+
+# read in greenhouse gas data from reservoirs
+ghg <- read.csv("/cloud/project/activity05/Deemer_GHG_Data.csv")
+
 
 # log transform methane fluxes
 ghg$log.ch4 <- log(ghg$ch4+1)

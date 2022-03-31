@@ -1,14 +1,14 @@
-ETdat <- read.csv("/cloud/project/activity06/ETdata.csv")
-
-unique(ETdat$crop)
-
-install.packages(lubridate, ggplot2, dplyr)
-install.packages(forecast)
+install.packages(c("lubridate", "ggplot2", "dplyr"))
+install.packages("forecast")
 
 library(lubridate)
 library(ggplot2)
 library(forecast)
 library(dplyr)
+
+ETdat <- read.csv("/cloud/project/activity06/ETdata.csv")
+
+unique(ETdat$crop)
 
 # average fields for each month for almonds
 almond <- ETdat %>% # ET data
@@ -82,4 +82,5 @@ ggplot() +
                   ymax=Hi.95), fill=rgb(0.5,0.5,0.5,0.5))+ # uncertainty interval
   theme_classic()+
   labs(x="year", y="Evapotranspiration (in)")
+
 
